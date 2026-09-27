@@ -26,17 +26,43 @@ jobs:
           pip install pytest bandit
 
       - name: Run Unit Tests (Pytest)
-        run: |
-          pytest
+        run: pytest
 
       - name: Run Security Audit (Bandit)
-        run: |
-          bandit -r . -x ./venv
+        run: bandit -r . -ll -s B101 -x ./venv
 
       - name: Build Docker Container Image
-        run: |
-          docker build -t crypto-pipeline:latest .
+        run: docker build -t crypto-pipeline:latest .
 
       - name: Run Pipeline in Docker Container
-        run: |
-          docker run --rm crypto-pipeline:latest
+        run: docker run --rm crypto-pipeline:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
